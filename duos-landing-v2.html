@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duos Technologies Group — Engineered for the Edge</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700&family=Libre+Franklin:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2EFE9;
+    --paper-2:#EAE6DD;
+    --graphite:#1B1F27;
+    --amber:#E2932F;
+    --indigo:#2E3568;
+    --line:#9AA0AC;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:'Libre Franklin', sans-serif; background:var(--paper); color:var(--graphite);}
+  h1,h2,h3,.display{font-family:'Big Shoulders Display', sans-serif; letter-spacing:.01em;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+
+  .tick{border-left:1px solid var(--line);}
+  .corner{position:relative;}
+  .corner::before,.corner::after{content:"";position:absolute;width:14px;height:14px;border:1.5px solid var(--graphite);}
+  .corner::before{top:-1px;left:-1px;border-right:none;border-bottom:none;}
+  .corner::after{bottom:-1px;right:-1px;border-left:none;border-top:none;}
+
+  /* ---- custom flex nav ---- */
+  .nav-wrap{display:flex; align-items:center; justify-content:space-between; gap:24px;}
+  .nav-links{display:flex; align-items:center; gap:30px;}
+  #nav-toggle{display:none;}
+  .nav-toggle-label{display:none; cursor:pointer; flex-direction:column; gap:5px;}
+
+  @media (max-width: 860px){
+    .nav-links{
+      position:fixed; top:0; right:0; height:100vh; width:78vw; max-width:320px;
+      background:var(--graphite); flex-direction:column; align-items:flex-start;
+      padding:88px 28px 28px; gap:24px; transform:translateX(100%);
+      transition:transform .35s ease; z-index:40;
+    }
+    .nav-links a{color:var(--paper) !important;}
+    #nav-toggle:checked ~ .nav-links{transform:translateX(0);}
+    .nav-toggle-label{display:flex;}
+    #nav-toggle:checked ~ .scrim{opacity:1; pointer-events:auto;}
+  }
+  .scrim{position:fixed; inset:0; background:rgba(27,31,39,.5); opacity:0; pointer-events:none; transition:opacity .3s ease; z-index:30;}
+
+  /* ---- signature: proximity ruler ---- */
+  .ruler-track{position:relative; height:2px; background:var(--line);}
+  .ruler-tick{position:absolute; top:-5px; width:1px; height:12px; background:var(--line);}
+  .ruler-tick.major{height:18px; top:-8px; background:var(--graphite);}
+
+  /* ---- spec cards row ---- */
+  .spec-row{display:flex; gap:0; flex-wrap:wrap; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .spec-card{flex:1 1 380px; padding:44px 40px; border-right:1px solid var(--line);}
+  @media (max-width:820px){
+    .spec-card{border-right:none; border-bottom:1px solid var(--line);}
+  }
+
+  .stat-row{display:flex; flex-wrap:wrap;}
+  .stat-item{flex:1 1 220px; padding:0 28px;}
+  @media (max-width:640px){
+    .stat-row{flex-direction:column;}
+    .stat-item{padding:20px 0; border-bottom:1px solid var(--line);}
+    .stat-item:first-child{border-top:1px solid var(--line);}
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 border-b" style="background:var(--paper); border-color:var(--line);">
+  <div class="nav-wrap max-w-7xl mx-auto px-6 md:px-10 py-5">
+    <a href="#" class="flex items-center gap-2 shrink-0">
+      <span class="mono text-[11px] tracking-[0.2em]" style="color:var(--amber);">FIG.01</span>
+      <span class="display font-semibold tracking-tight text-[19px]">DUOS TECHNOLOGIES GROUP</span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span class="block w-6 h-[2px]" style="background:var(--graphite);"></span>
+      <span class="block w-6 h-[2px]" style="background:var(--graphite);"></span>
+      <span class="block w-6 h-[2px]" style="background:var(--graphite);"></span>
+    </label>
+
+    <nav class="nav-links mono text-[13px] tracking-wide">
+      <a href="#architecture" class="hover:opacity-60">ABOUT</a>
+      <a href="#specs" class="hover:opacity-60">SOLUTIONS</a>
+      <a href="#specs" class="hover:opacity-60">BUSINESS UNITS</a>
+      <a href="#investors" class="hover:opacity-60">INVESTORS</a>
+      <a href="#news" class="hover:opacity-60">NEWS</a>
+      <a href="#contact" class="hover:opacity-60">CONTACT</a>
+      <a href="#investors" class="mt-2 px-4 py-2 text-center w-full md:w-auto" style="background:var(--graphite); color:var(--paper);">INVESTOR RELATIONS</a>
+    </nav>
+    <label for="nav-toggle" class="scrim"></label>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-24">
+  <div class="corner p-8 md:p-14 flex flex-col md:flex-row gap-14 items-start">
+    <div class="flex-1">
+      <p class="mono text-[12px] tracking-[0.2em]" style="color:var(--amber);">NASDAQ: DUOT — SPEC — AI &amp; EDGE INFRASTRUCTURE</p>
+      <h1 class="display text-[52px] md:text-[76px] leading-[0.95] font-semibold mt-5">
+        BUILT CLOSE.<br>BUILT TO SCALE.
+      </h1>
+      <p class="mt-6 max-w-md text-[16px] leading-relaxed" style="color:#4A5063;">
+        Duos Technologies Group is the parent company behind two operating platforms: edge data centers engineered for proximity, and data center infrastructure solutions engineered for scale.
+      </p>
+      <div class="flex flex-wrap gap-4 mt-9">
+        <a href="#specs" class="px-6 py-3 font-medium" style="background:var(--graphite); color:var(--paper);">Explore the platforms</a>
+        <a href="#investors" class="px-6 py-3 font-medium border" style="border-color:var(--graphite);">Investor relations</a>
+      </div>
+    </div>
+
+    <div class="flex-1 w-full pt-2">
+      <p class="mono text-[11px] tracking-[0.15em] mb-6" style="color:var(--line);">DISTANCE TO END USER — TYPICAL DEPLOYMENT</p>
+
+      <p class="mono text-[12px] mb-2">TRADITIONAL HYPERSCALE DATA CENTER</p>
+      <div class="ruler-track mb-1">
+        <span class="ruler-tick major" style="left:0%;"></span>
+        <span class="ruler-tick" style="left:20%;"></span>
+        <span class="ruler-tick" style="left:40%;"></span>
+        <span class="ruler-tick" style="left:60%;"></span>
+        <span class="ruler-tick" style="left:80%;"></span>
+        <span class="ruler-tick major" style="left:100%;"></span>
+      </div>
+      <p class="display text-[26px] leading-none mb-8" style="color:var(--line);">100+ MILES</p>
+
+      <p class="mono text-[12px] mb-2">DUOS EDGE AI</p>
+      <div class="ruler-track mb-1">
+        <span class="ruler-tick major" style="left:0%; background:var(--amber);"></span>
+        <span class="ruler-tick major" style="left:12%; background:var(--amber);"></span>
+      </div>
+      <p class="display text-[26px] leading-none" style="color:var(--amber);">WITHIN 12 MILES</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<section class="border-t border-b" style="border-color:var(--line);">
+  <div class="max-w-7xl mx-auto stat-row py-8">
+    <div class="stat-item">
+      <p class="display text-[30px] font-semibold">2001</p>
+      <p class="mono text-[11px]" style="color:var(--line);">FOUNDED · JACKSONVILLE, FL</p>
+    </div>
+    <div class="stat-item">
+      <p class="display text-[30px] font-semibold">100kW+</p>
+      <p class="mono text-[11px]" style="color:var(--line);">PER-CABINET DENSITY</p>
+    </div>
+    <div class="stat-item">
+      <p class="display text-[30px] font-semibold">90 DAYS</p>
+      <p class="mono text-[11px]" style="color:var(--line);">TYPICAL EDC DEPLOYMENT</p>
+    </div>
+    <div class="stat-item">
+      <p class="display text-[30px] font-semibold">2</p>
+      <p class="mono text-[11px]" style="color:var(--line);">OPERATING SUBSIDIARIES</p>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND ARCHITECTURE -->
+<section id="architecture" class="max-w-7xl mx-auto px-6 md:px-10 py-20">
+  <p class="mono text-[12px] tracking-[0.2em]" style="color:var(--indigo);">SPEC — BRAND ARCHITECTURE</p>
+  <h2 class="display text-[34px] md:text-[44px] font-semibold mt-3 max-w-2xl">ONE PARENT COMPANY. TWO ENGINEERED PLATFORMS.</h2>
+  <p class="mt-5 max-w-2xl leading-relaxed" style="color:#4A5063;">
+    Duos Technologies Group sets strategy, capital allocation, and governance across the organization. Each operating business keeps its own identity and go-to-market motion, while staying visibly connected to the parent for investors, partners, and government customers evaluating the group as a whole.
+  </p>
+</section>
+
+<!-- SPEC CARDS (BUSINESS UNITS) -->
+<section id="specs" class="max-w-7xl mx-auto px-6 md:px-10">
+  <div class="spec-row">
+    <div class="spec-card">
+      <p class="mono text-[11px] tracking-[0.15em]" style="color:var(--amber);">SPEC — 01</p>
+      <h3 class="display text-[30px] font-semibold mt-2">DUOS EDGE AI</h3>
+      <p class="mt-4 leading-relaxed" style="color:#4A5063;">
+        Modular edge data centers deployed close to schools, hospitals, and rural communities, cutting latency by sitting within 12 miles of end users instead of a distant hyperscale campus.
+      </p>
+      <a href="#" class="mono text-[12px] tracking-wide inline-block mt-6" style="color:var(--amber);">VIEW PLATFORM →</a>
+    </div>
+    <div class="spec-card">
+      <p class="mono text-[11px] tracking-[0.15em]" style="color:var(--indigo);">SPEC — 02</p>
+      <h3 class="display text-[30px] font-semibold mt-2">DUOS TECHNOLOGY SOLUTIONS</h3>
+      <p class="mt-4 leading-relaxed" style="color:#4A5063;">
+        Manufacturer-agnostic sourcing, deployment, and infrastructure services that move enterprise and government data center builds from design to operational faster.
+      </p>
+      <a href="#" class="mono text-[12px] tracking-wide inline-block mt-6" style="color:var(--indigo);">VIEW PLATFORM →</a>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTOR / NEWS -->
+<section id="investors" class="py-20" style="background:var(--paper-2);">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row gap-16">
+    <div class="flex-1">
+      <p class="mono text-[12px] tracking-[0.2em]" style="color:var(--indigo);">SPEC — INVESTORS</p>
+      <h2 class="display text-[30px] font-semibold mt-3">BUILT FOR SCRUTINY.</h2>
+      <p class="mt-4 leading-relaxed max-w-md" style="color:#4A5063;">
+        Governance, filings, and operating updates for Duos Technologies Group (Nasdaq: DUOT) and both subsidiaries, in one place.
+      </p>
+      <a href="#" class="inline-block mt-6 px-6 py-3 font-medium" style="background:var(--graphite); color:var(--paper);">Visit investor relations</a>
+    </div>
+    <div id="news" class="flex-1">
+      <p class="mono text-[12px] tracking-[0.2em]" style="color:var(--amber);">SPEC — NEWS &amp; MEDIA</p>
+      <div class="mt-4 flex flex-col gap-5">
+        <div class="pb-5 border-b" style="border-color:var(--line);">
+          <p class="mono text-[11px]" style="color:var(--line);">EDGE DATA CENTERS</p>
+          <p class="font-medium mt-1">Duos Edge AI expands deployment footprint across the Texas panhandle</p>
+        </div>
+        <div class="pb-5 border-b" style="border-color:var(--line);">
+          <p class="mono text-[11px]" style="color:var(--line);">PARTNERSHIPS</p>
+          <p class="font-medium mt-1">Duos Technology Solutions supports large-scale GPU cluster deployment</p>
+        </div>
+        <div>
+          <p class="mono text-[11px]" style="color:var(--line);">CORPORATE</p>
+          <p class="font-medium mt-1">Duos Technologies Group names new executive leadership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 text-center px-6 border-t border-b" style="border-color:var(--line);">
+  <h2 class="display text-[34px] md:text-[44px] font-semibold max-w-2xl mx-auto">LET'S TALK ABOUT YOUR INFRASTRUCTURE ROADMAP.</h2>
+  <div class="flex flex-wrap justify-center gap-4 mt-8">
+    <a href="#contact" class="px-6 py-3 font-medium" style="background:var(--amber); color:var(--graphite);">Contact sales</a>
+    <a href="#" class="px-6 py-3 font-medium border" style="border-color:var(--graphite);">Careers</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" class="py-14 px-6 md:px-10">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10 text-[14px]" style="color:#4A5063;">
+    <div class="max-w-xs">
+      <p class="display font-semibold text-[18px]" style="color:var(--graphite);">DUOS TECHNOLOGIES GROUP</p>
+      <p class="mt-3 leading-relaxed">7660 Centurion Parkway, Suite 100<br>Jacksonville, FL 32256</p>
+    </div>
+    <div class="flex flex-wrap gap-16">
+      <div>
+        <p class="mono text-[11px] tracking-wide mb-3" style="color:var(--line);">COMPANY</p>
+        <ul class="flex flex-col gap-2">
+          <li><a href="#" class="hover:opacity-60">About</a></li>
+          <li><a href="#" class="hover:opacity-60">Leadership</a></li>
+          <li><a href="#" class="hover:opacity-60">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="mono text-[11px] tracking-wide mb-3" style="color:var(--line);">PLATFORMS</p>
+        <ul class="flex flex-col gap-2">
+          <li><a href="#" class="hover:opacity-60">Duos Edge AI</a></li>
+          <li><a href="#" class="hover:opacity-60">Duos Technology Solutions</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="mono text-[11px] tracking-wide mb-3" style="color:var(--line);">RESOURCES</p>
+        <ul class="flex flex-col gap-2">
+          <li><a href="#" class="hover:opacity-60">Investor Relations</a></li>
+          <li><a href="#" class="hover:opacity-60">News &amp; Media</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="mono text-[11px] mt-12 max-w-7xl mx-auto" style="color:var(--line);">© 2026 DUOS TECHNOLOGIES GROUP, INC. NASDAQ: DUOT</p>
+</footer>
+
+</body>
+</html>
