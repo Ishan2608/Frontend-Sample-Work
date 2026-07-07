@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Website Design Concepts</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body{
+            font-family: Inter, system-ui, sans-serif;
+            background:#f5f7fa;
+            color:#161616;
+        }
+
+        /* IBM-inspired subtle grid */
+        .grid-bg{
+            background-image:
+                linear-gradient(rgba(0,0,0,.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,.045) 1px, transparent 1px);
+            background-size:56px 56px;
+        }
+
+        /* Fade grid into page */
+        .grid-bg::before{
+            content:"";
+            position:fixed;
+            inset:0;
+            background:
+                radial-gradient(circle at center,
+                    transparent 20%,
+                    rgba(245,247,250,.15) 55%,
+                    rgba(245,247,250,.92) 100%);
+            pointer-events:none;
+        }
+
+        .card{
+            transition:.28s ease;
+        }
+
+        .card:hover{
+            transform:translateY(-6px);
+            border-color:#0f62fe;
+            box-shadow:
+                0 18px 45px rgba(0,0,0,.08);
+        }
+
+        .arrow{
+            transition:.25s ease;
+        }
+
+        .card:hover .arrow{
+            transform:translateX(6px);
+        }
+    </style>
+
+</head>
+
+<body class="grid-bg">
+
+<div class="relative min-h-screen flex items-center">
+
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full py-20">
+
+    <!-- Header -->
+
+    <div class="max-w-5xl">
+
+        <p class="uppercase tracking-[0.32em] text-gray-500 text-sm font-medium">
+            Website Design Submission
+        </p>
+
+        <h1 class="mt-8 text-5xl md:text-7xl font-light leading-[1.05] tracking-tight">
+            Two design concepts,
+            <br>
+            one product vision.
+        </h1>
+
+        <p class="mt-10 text-xl text-gray-600 max-w-2xl leading-9">
+            These concepts explore different visual directions based on
+            your project brief. Both are fully responsive and developed
+            with production-quality standards in mind.
+        </p>
+
+    </div>
+
+    <!-- Cards -->
+
+    <div class="grid lg:grid-cols-2 gap-8 mt-24">
+
+        <!-- Design 1 -->
+
+        <a href="./design-1/"
+           class="card bg-white border border-gray-300 rounded-sm p-10 flex flex-col justify-between min-h-[320px] group">
+
+            <div>
+
+                <span class="text-sm tracking-[0.25em] uppercase text-gray-500">
+                    Design 01
+                </span>
+
+                <h2 class="mt-6 text-4xl font-light">
+                    Concept One
+                </h2>
+
+            </div>
+
+            <div class="flex justify-between items-center pt-16 border-t border-gray-200">
+
+                <span class="text-gray-600">
+                    Open Design
+                </span>
+
+                <span class="arrow text-3xl text-[#0f62fe]">
+                    →
+                </span>
+
+            </div>
+
+        </a>
+
+        <!-- Design 2 -->
+
+        <a href="./design-2/"
+           class="card bg-white border border-gray-300 rounded-sm p-10 flex flex-col justify-between min-h-[320px] group">
+
+            <div>
+
+                <span class="text-sm tracking-[0.25em] uppercase text-gray-500">
+                    Design 02
+                </span>
+
+                <h2 class="mt-6 text-4xl font-light">
+                    Concept Two
+                </h2>
+
+            </div>
+
+            <div class="flex justify-between items-center pt-16 border-t border-gray-200">
+
+                <span class="text-gray-600">
+                    Open Design
+                </span>
+
+                <span class="arrow text-3xl text-[#0f62fe]">
+                    →
+                </span>
+
+            </div>
+
+        </a>
+
+    </div>
+
+    <!-- Footer -->
+
+    <div class="mt-24 pt-8 border-t border-gray-300 flex flex-col md:flex-row justify-between gap-4 text-sm text-gray-500">
+
+        <span>
+            Thank you for taking the time to review my work.
+        </span>
+
+        <span>
+            Designed & Developed by Your Name
+        </span>
+
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
